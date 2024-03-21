@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50)->unique();
+            $table->text('description');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

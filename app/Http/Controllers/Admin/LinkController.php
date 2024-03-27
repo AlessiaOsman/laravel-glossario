@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
-use App\Models\Word;
+use App\Models\Link;
 use Illuminate\Http\Request;
 
-class WordController extends Controller
+class LinkController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.words.index');
+        //
     }
 
     /**
@@ -21,9 +20,7 @@ class WordController extends Controller
      */
     public function create()
     {
-        $word = new Word();
-        $tags = Tag::all();
-        return view('admin.words.create', compact('word', 'tags'));
+        //
     }
 
     /**
@@ -31,38 +28,38 @@ class WordController extends Controller
      */
     public function store(Request $request)
     {
-        return to_route('admin.words.show');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Word $word)
+    public function show(Link $link)
     {
-        return view('admin.words.show');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Word $word)
+    public function edit(Link $link)
     {
-        return view('admin.words.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Word $word)
+    public function update(Request $request, Link $link)
     {
-        return to_route('admin.words.show');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Word $word)
+    public function destroy(Link $link)
     {
-        return to_route('admin.words.index');
+        //
     }
 }

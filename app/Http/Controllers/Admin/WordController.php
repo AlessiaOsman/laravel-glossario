@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class WordController extends Controller
 {
@@ -13,7 +14,8 @@ class WordController extends Controller
      */
     public function index()
     {
-        return view('admin.words.index');
+        $words = Word::all();
+        return view('admin.words.index', compact('words'));
     }
 
     /**
@@ -39,7 +41,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
-        return view('admin.words.show');
+        return view('admin.words.show', compact('word'));
     }
 
     /**
@@ -63,6 +65,7 @@ class WordController extends Controller
      */
     public function destroy(Word $word)
     {
+        $word->delete();    
         return to_route('admin.words.index');
     }
 }

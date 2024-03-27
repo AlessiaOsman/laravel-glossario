@@ -5,8 +5,8 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Admin\WordController as AdminWordController;
 // se un domani da problemi sappiamo il perche' (\admin)
-use App\Http\Controllers\TagController as AdminTagController;
-use App\Http\Controllers\LinkController as AdminLinkController;
+use App\Http\Controllers\Admin\TagController as AdminTagController;
+use App\Http\Controllers\Admin\LinkController as AdminLinkController;
 
 use App\Http\Controllers\Guest\WordController as GuestWordController;
 use App\Http\Controllers\ProfileController;
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', GuestHomeController::class)->name('guest.home');
 
-Route::prefix('/admin')->name('admin')->middleware('auth')->group(function () {
+Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('', AdminHomeController::class)->name('home');
     // ROTTE WORD
     Route::resource('words', AdminWordController::class);

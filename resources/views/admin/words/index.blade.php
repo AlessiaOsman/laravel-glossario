@@ -32,7 +32,8 @@
                                     class="fa-solid fa-eye"></i></a>
 
 
-                            <form action="{{ route('admin.words.destroy', $word->id) }}" method="POST" class="delete-form" data-bs-toggle="modal" data-bs-target="#modal">
+                            <form action="{{ route('admin.words.destroy', $word->id) }}" method="POST" class="delete-form"
+                                data-bs-toggle="modal" data-bs-target="#modal">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger "><i
@@ -42,6 +43,10 @@
 
                             <a class="btn btn-warning btn-sm" href="{{ route('admin.words.edit', $word) }}"><i
                                     class="fa-solid fa-pencil"></i></a>
+
+                            <a href="{{ route('admin.words.create') }}" class="btn btn-sm btn-success">
+                                <i class="fas fa-plus"></i>
+                            </a>
                         </div>
                     </td>
                 </tr>

@@ -36,6 +36,10 @@
             @yield('content')
         </main>
     </div>
+
+    {{-- MODALE --}}
+    @include('includes.alerts.modal')
+
     @yield('scripts')
 </body>
 

@@ -52,6 +52,10 @@
         </main>
         @include('includes.layouts.footer')
     </div>
+
+    {{-- MODALE --}}
+    @include('includes.alerts.modal')
+
     @yield('scripts')
 </body>
 

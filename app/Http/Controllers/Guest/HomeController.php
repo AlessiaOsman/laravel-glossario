@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-   public function __invoke()
+   public function __invoke(Request $request)
    {
-   $words = Word::all();
-    return view('guest.home', compact('words'));
+      $search = $request->query('search');
+      if (!$search) {
+         $words = Word::all();
+      } else {
+         $words = Word::where('title', 'LIKE', "$search%")->get();
+      }
+
+      return view('guest.home', compact('words', 'search'));
    }
 }

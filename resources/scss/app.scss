@@ -1,9 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+
+
 #jumbotron {
     height: 500px;
-    background-color: #245501;
+    background-image: url('../image/cielo-stellato.png');
+    background-repeat: repeat;
+    background-size: contain;
 
+}
+
+.navbar {
+    border-bottom: 5px solid #245501;
 }
 
 .table-word {
@@ -22,7 +31,23 @@
 
 #footer {
     height: 300px;
+    background-color: black;
+    color: white;
     margin-top: 20px;
+}
+
+#list-social {
+    list-style-type: none;
+}
+
+.btn-bootstrap {
+    background-color: #6D2CF2;
+    color: white;
+}
+
+.btn-wschool {
+    background-color: #059862;
+    color: white;
 }
 
 .footer-body {
@@ -31,4 +56,5 @@
 
 body {
     font-family: "Merriweather", serif;
+    visibility: visible;
 }

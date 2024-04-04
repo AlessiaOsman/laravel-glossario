@@ -7,7 +7,7 @@
             <h1 class="text-center text-light mb-5">Impara a programmare</h1>
             <form method="GET" action="{{ route('guest.home')}}">
                 <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Cerca Progetto" name="search"
+                    <input type="search" class="form-control" placeholder="Es: Array.." name="search"
                         value="{{$search}}">
                     <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
@@ -66,3 +66,4 @@
         </div>
     @endforeach
 @endsection
+

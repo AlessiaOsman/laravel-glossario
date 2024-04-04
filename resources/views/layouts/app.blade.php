@@ -27,6 +27,12 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <style>
+            body{
+                visibility:hidden
+            }
+        </style>
+
     @yield('cdns')
 
     <!-- Usando Vite -->
@@ -39,8 +45,10 @@
 
         @include('includes.layouts.navbar')
         @yield('jumbotron')
-        <main class="container">
-            @yield('content')
+        <main id="main">
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
         @include('includes.layouts.footer')
     </div>

@@ -26,7 +26,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// rotta home guest
 Route::get('/', GuestHomeController::class)->name('guest.home');
+// CRUD guest
+Route::get('/guest/words/{word}', [GuestWordController::class, 'show'])->name('guest.show');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('', AdminHomeController::class)->name('home');

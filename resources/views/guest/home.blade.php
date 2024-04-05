@@ -45,20 +45,20 @@
     </div>
     @foreach ($words as $word)
         <div class="table-word">
-            <div class="row align-items-center g-0">
+            <div class="row align-items-center p-2 g-0">
                 <div class="col-md-4 d-flex align-items-center justify-content-start">
-                    <h5 class="ms-3">{{ $word->title }}</h5>
+                    <h5 class="mb-0">{{ $word->title }}</h5>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex align-items-center justify-content-start">
                         <div>
                             {{-- <p class="card-text mb-3">{{ $word->description }}</p> --}}
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit possimus </p>
+                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit possimus </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <div class="d-flex align-items-center justify-content-center">
+                    <div class="d-flex align-items-center justify-content-end">
                         <a href="{{route('guest.show', $word->id)}}" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
                     </div>
                 </div>

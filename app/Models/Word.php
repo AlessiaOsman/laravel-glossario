@@ -11,7 +11,7 @@ class Word extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'description'];
+    protected $fillable = ['title', 'description'];
 
     // relazione many to many con tag
 

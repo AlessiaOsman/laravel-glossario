@@ -61,21 +61,21 @@
             @enderror
         </div>
     </div>
-    <div class="col-6">
-        <div class="mb-3">
-            <label for="tag_id" class="form-label">Seleziona tecnologia</label>
-            <select
-                class="form-select @error('tag_id') is-invalid
-            @elseif (old('tag_id', '')) is-valid 
-          @enderror"
-                name="tag_id" id='tag_id'>
-                <option value="">Nessuna</option>
-                @foreach ($tags as $tag)
-                    <option value="{{ $tag->id }}" @if (old('tag_id', $word->tag?->id) == $tag->id) selected @endif>
-                        {{ $tag->label }}</option>
-                @endforeach
-            </select>
+    <div class="col">
+        <div class="mt-3">
+            @foreach ( $tags as $tag )
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="{{"tech-$tag->label"}}" name='tags[]' value="{{$tag->id}}" 
+                @if (in_array($tag->id, old('tags', $prev_tag ?? []))) checked @endif>
+                <label class="form-check-label" for="{{"tech-$tag->label"}}">{{$tag->label}}</label>
+              </div>
+            @endforeach    
         </div>
+        @error('technologies')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+        @enderror
     </div>
     <div class="col-5">
         <div class="mb-3">

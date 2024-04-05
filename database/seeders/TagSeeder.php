@@ -17,7 +17,7 @@ class TagSeeder extends Seeder
         $tags = [
             [
                 'label' => 'HTML',
-                'color' => 'danger-emphasis'
+                'color' => 'secondary'
             ],
             [
                 'label' => 'CSS',

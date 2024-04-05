@@ -14,6 +14,11 @@
             <div>
                 <h5 class="card-title">{{ $word->title }}</h5>
                 <p class="card-text mb-3">{{ $word->description }}</p>
+                @forelse ($word->tags as $tag )
+                    <span class="badge rounded-pill text-bg-{{$tag->color}}">{{$tag->label}}</span>
+                    @empty
+                        <h4 class="mb-3">Nessuna tecnologia presente</h4>
+                    @endforelse
             </div>
             <div class="d-flex justify-content-between">
                 <a href="{{ route('admin.words.index', $word) }}" class="btn btn-primary"><i

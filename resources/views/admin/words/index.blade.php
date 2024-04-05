@@ -54,6 +54,7 @@
                         </div>
                     </td>
                 </tr>
+
             @empty
                 <tr>
                     <th>Nessun progetto da mostrare</th>
@@ -61,7 +62,13 @@
             @endforelse
 
         </tbody>
+
     </table>
+
+    @if ($words->hasPages())
+    {{$words->links()}}    
+        
+    @endif
 
 @endsection
 

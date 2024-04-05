@@ -21,20 +21,6 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="mb-3">Lista completa</h1>
-        
-            {{-- FITRLI --}}
-            <form action="" method="GET" class="d-flex">
-                {{-- FILTRO PER TECNOLOGIE --}}
-               
-                <div class="input-group mb-3">
-                    <select name="technology_filter" class="form-select">
-                        <option value="">Tutte le tecnologie</option>
-                        
-                    </select>
-                    <button class="btn btn-success" type="button">Filtra</button>
-                    <button class="btn btn-danger" type="button">Reset</button>
-                  </div>
-            </form>
        
 
 
@@ -52,8 +38,7 @@
                 <div class="col-md-6">
                     <div class="d-flex align-items-center justify-content-start">
                         <div>
-                            {{-- <p class="card-text mb-3">{{ $word->description }}</p> --}}
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit possimus </p>
+                            <p class="card-text mb-3">{{ $word->description }}</p>
                         </div>
                     </div>
                 </div>

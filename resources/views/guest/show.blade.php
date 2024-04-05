@@ -13,7 +13,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eum porro consequuntur possimus ipsa incidunt vel ab vero voluptas voluptatibus magnam unde, totam eaque esse distinctio eveniet. Porro, perspiciatis dolor.</p>
             </div>
             <div class="col-5 ">
-                <img src="{{asset('https://marcolanci.it/boolean/assets/placeholder.png')}}" alt="" class="img-fluid img-word-guest">
+                <img src="{{ $word->image ? $word->printImage() : 'https://marcolanci.it/boolean/assets/placeholder.png' }}" alt="{{$word->title}}" class="img-fluid img-word-guest">
             </div>
         </div>
         <div class="row">

@@ -45,7 +45,7 @@
 
         @include('includes.layouts.navbar')
         @yield('jumbotron')
-        <main id="main">
+        <main id="main" class="mb-5">
             <div class="container">
                 @yield('content')
             </div>

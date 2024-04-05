@@ -61,7 +61,7 @@
             @enderror
         </div>
     </div>
-    <div class="col">
+    <div class="col-12">
         <div class="mt-3">
             @foreach ( $tags as $tag )
               <div class="form-check form-check-inline">
@@ -77,11 +77,12 @@
             </div>
         @enderror
     </div>
-    <div class="col-5">
-        <div class="mb-3">
+    <div class="col-11">
+        <div class="my-3">
             <label for="image" class="form-label">Immagine</label>
-            <div @class(['form-control', 'd-none' => !$word->image]) id='previous-image-field'>
-                <button class="btn btn-outline-secondary" type="button" id="change-image-button">Cambia
+            <div @class(['form-control', 'd-flex', 'd-none' => !$word->image])  id='previous-image-field'>
+                {{-- gioacchino il bordoooo --}}
+                <button class="btn btn-outline-secondary w-25 me-1" type="button" id="change-image-button">Cambia
                     Immagine</button>
                 <input type="text" class="form-control" value="{{ old('image', $word->image) }}" disabled>
             </div>

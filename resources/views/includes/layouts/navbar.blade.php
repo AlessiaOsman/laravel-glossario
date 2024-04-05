@@ -45,7 +45,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         @auth
-                        <a class="dropdown-item" href="{{ url('/admin') }}">{{__('Admin Home')}}</a>  
+                        {{-- <a class="dropdown-item" href="{{ url('/admin') }}">{{__('Admin Home')}}</a>   --}}
                         @endauth
                         
                         <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>

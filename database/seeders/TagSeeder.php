@@ -40,7 +40,7 @@ class TagSeeder extends Seeder
                 'color' => 'info'
             ],
             [
-                'label' => 'lARAVEL',
+                'label' => 'LARAVEL',
                 'color' => 'danger'
             ],
             [

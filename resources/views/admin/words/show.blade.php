@@ -7,7 +7,10 @@
     <div class="card my-5">
         <div class="row g-0">
         <div class="col-md-4">
-        <img src="https://marcolanci.it/boolean/assets/placeholder.png" class="img-fluid rounded-start" alt="{{ $word->title }}" style="width: 100%;">
+            
+                
+            <img src="{{ $word->image ? $word->printImage() : 'https://marcolanci.it/boolean/assets/placeholder.png' }}" class="img-fluid rounded-start" alt="{{ $word->title }}" style="width: 100%;">
+           
         </div>
         <div class="col-md-8">
         <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">

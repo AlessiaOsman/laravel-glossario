@@ -5,7 +5,7 @@
 @section('content')
 
 <header>
-    <h1 class="mb-5">Modifica Parola</h1>
+    <h1 class="my-3">Modifica Parola</h1>
     @include('includes.words.form')
 </header>
 

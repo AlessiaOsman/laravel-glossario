@@ -13,7 +13,11 @@
                 <th scope="col">Descrizione</th>
                 <th scope="col">Creato il</th>
                 <th scope="col">Modificato il</th>
-                <th></th>
+                <th class="d-flex justify-content-end">
+                    <a href="{{ route('admin.words.create') }}" class="btn btn-success">
+                        <i class="fas fa-plus me-2"></i>Aggiungi Termine
+                    </a>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +30,7 @@
                     <td>{{ $word->getFormattedDate('created_at') }}</td>
                     <td>{{ $word->getFormattedDate('updated_at') }}</td>
 
-                    <td>
+                    <td class="d-flex justify-content-end">
                         <div class="d-flex gap-2">
                             <a href="{{ route('admin.words.show', $word) }}" class="btn btn-sm btn-primary"><i
                                     class="fa-solid fa-eye"></i></a>
@@ -44,9 +48,7 @@
                             <a class="btn btn-warning btn-sm" href="{{ route('admin.words.edit', $word) }}"><i
                                     class="fa-solid fa-pencil"></i></a>
 
-                            <a href="{{ route('admin.words.create') }}" class="btn btn-sm btn-success">
-                                <i class="fas fa-plus"></i>
-                            </a>
+                            
                         </div>
                     </td>
                 </tr>

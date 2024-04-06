@@ -13,7 +13,7 @@ class GlossarioController extends Controller
      */
     public function index()
     {
-        $words = Word::orderByDesc('updated_at')->orderByDesc('created_at')->paginate(10)->withQueryString();
+        $words = Word::latest()->with('tags')->get();
 
         return response()->json($words);
     }

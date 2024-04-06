@@ -20,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('words', GlossarioController::class)->only('index', 'show');
+Route::apiResource('words', GlossarioController::class)->only('index');
+Route::get('words/{slug}', [GlossarioController::class, 'show']);

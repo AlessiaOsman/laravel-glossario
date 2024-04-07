@@ -21,13 +21,6 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="mb-3">Lista completa</h1>
-       
-
-
-
-
-
-
     </div>
     @foreach ($words as $word)
         <div class="table-word">

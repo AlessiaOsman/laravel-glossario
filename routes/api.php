@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\GlossarioController;
 use App\Models\Word;
 use Illuminate\Http\Request;

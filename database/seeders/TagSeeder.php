@@ -34,7 +34,7 @@ class TagSeeder extends Seeder
             ],
             [
                 'label' => 'PHP',
-                'color' => 'primary-emphasis'
+                'color' => 'primary-danger'
             ],
             [
                 'label' => 'VUE',

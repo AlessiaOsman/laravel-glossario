@@ -141,7 +141,6 @@ class WordSeeder extends Seeder
             ], */
         ];
 
-
         foreach ($words as $word) {
             $new_word = new Word();
             $new_word->fill($word);

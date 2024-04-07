@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class WordSeeder extends Seeder
 {
@@ -15,37 +16,78 @@ class WordSeeder extends Seeder
     public function run(): void
     {
 
+        $tags = [
+
+            [
+                'label' => 'Programmazione',
+                'id' => 1,
+            ],
+            [
+                'label' => 'HTML',
+                'id' => 2
+            ],
+            [
+                'label' => 'CSS',
+                'id' => 3
+            ],
+            [
+                'label' => 'Javascript',
+                'id' => 4
+            ],
+            [
+                'label' => 'PHP',
+                'id' => 5
+            ],
+            [
+                'label' => 'VUE',
+                'id' => 6
+            ],
+
+            [
+                'label' => 'SQL',
+                'id' => 7
+            ],
+            [
+                'label' => 'LARAVEL',
+                'id' => 8
+            ],
+
+        ];
+
         //Array di base
         $words = [
             [
                 'title' => 'Programmazione',
                 'slug' => 'programmazione',
-                'description' => 'La programmazione è il processo di ideazione, progettazione e costruzione di programmi informatici eseguibili volti alla risoluzione di problemi. La programmazione è costituita da fasi come l\'analisi e la generazione di algoritmi, lo studio della loro accuratezza e del consumo di risorse, e l\'implementazione di suddetti algoritmi (solitamente in un linguaggio di programmazione), fase nota come scrittura di codice.'
+                'description' => 'La programmazione è il processo di ideazione, progettazione e costruzione di programmi informatici eseguibili volti alla risoluzione di problemi. La programmazione è costituita da fasi come l\'analisi e la generazione di algoritmi, lo studio della loro accuratezza e del consumo di risorse, e l\'implementazione di suddetti algoritmi (solitamente in un linguaggio di programmazione), fase nota come scrittura di codice.',
+                
             ],
             [
                 'title' => 'Framework',
                 'slug' => 'framework',
-                'description' => 'è un\'architettura logica di supporto (spesso un\'implementazione logica di un particolare design pattern) sulla quale un software può essere progettato e realizzato, spesso facilitandone lo sviluppo da parte del programmatore.'
+                'description' => 'è un\'architettura logica di supporto (spesso un\'implementazione logica di un particolare design pattern) sulla quale un software può essere progettato e realizzato, spesso facilitandone lo sviluppo da parte del programmatore.',
+                
             ],
             [
                 'title' => 'Debug',
                 'slug' => 'debug',
-                'description' => 'Il debugging (o semplicemente debug) o depurazione, consiste nell\'individuare e correggere errori nel codice (bug)'
+                'description' => 'Il debugging (o semplicemente debug) o depurazione, consiste nell\'individuare e correggere errori nel codice (bug)',
             ],
             [
                 'title' => 'Libreria',
                 'slug' => 'libreria',
-                'description' => 'Una libreria si compone di un pacchetto di uno o più file volti a fornire metodi aggiuntivi (e magari completi) per lo sviluppo di un applicazione o di un software.'
+                'description' => 'Una libreria si compone di un pacchetto di uno o più file volti a fornire metodi aggiuntivi (e magari completi) per lo sviluppo di un applicazione o di un software.',
+                
             ],
             [
                 'title' => 'HEAD',
                 'slug' => 'head',
-                'description' => 'Un documento HTML è composto da due parti principali, una parte superiore chiamata \'head\' ( testa ) e una parte inferiore chiamata "body" ( corpo ). La sezione head è l\'area dedicata all\'intestazione ( header ) del documento HTML e comprende tutte quelle informazioni di controllo che non sono visualizzate dal browser ma che consentono la corretta visualizzazione della pagina. In questa sezione vengono inseriti tutti i meta tag in HTML per definire il titolo, gli stili, gli script e le altre informazioni.'
+                'description' => 'Un documento HTML è composto da due parti principali, una parte superiore chiamata \'head\' ( testa ) e una parte inferiore chiamata "body" ( corpo ). La sezione head è l\'area dedicata all\'intestazione ( header ) del documento HTML e comprende tutte quelle informazioni di controllo che non sono visualizzate dal browser ma che consentono la corretta visualizzazione della pagina. In questa sezione vengono inseriti tutti i meta tag in HTML per definire il titolo, gli stili, gli script e le altre informazioni.',
             ],
             [
                 'title' => 'BODY',
                 'slug' => 'body',
-                'description' => 'E\' la sezione centrale, o corpo appunto, delle pagine web. Questa sezione racchiude tutti i contenuti, come il testo, le immagini e i collegamenti che costituiscono la parte visualizzata dal browser.'
+                'description' => 'E\' la sezione centrale, o corpo appunto, delle pagine web. Questa sezione racchiude tutti i contenuti, come il testo, le immagini e i collegamenti che costituiscono la parte visualizzata dal browser.',
             ],
             [
                 'title' => 'TAG',
@@ -143,10 +185,18 @@ class WordSeeder extends Seeder
             ], */
         ];
 
+        
+
         foreach ($words as $word) {
             $new_word = new Word();
-            $new_word->fill($word);
+            $new_word->title = $word['title'];
+            $new_word->slug = $word['slug'];
+            $new_word->description = $word['description'];
             $new_word->save();
-        }
+            /* $new_word->tags()->attach($word['tags']); */
+        } 
+
+        
+        
     }
 }

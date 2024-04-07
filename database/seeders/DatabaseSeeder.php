@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Link::factory(5)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'pippo',
@@ -20,5 +19,6 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(WordSeeder::class);
         $this->call(TagSeeder::class);
+        $this->call(LinkSeeder::class);
     }
 }

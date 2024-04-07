@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Word;
 use Illuminate\Http\Request;
 
+
 class GlossarioController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class GlossarioController extends Controller
      */
     public function index()
     {
-        $words = Word::latest()->with('tags')->get();
+        $words = Word::latest()->with('tags')->paginate(3);
 
         return response()->json($words);
     }

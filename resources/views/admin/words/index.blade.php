@@ -6,19 +6,25 @@
 
     <table class="table mt-5">
         <thead>
-            <tr>
+            <tr class="align-middle text-center">
                 <th scope="col">#</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Descrizione</th>
                 <th scope="col">Creato il</th>
                 <th scope="col">Modificato il</th>
-                <th></th>
+                <th>
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('admin.words.create') }}" class="btn btn-success">
+                            <i class="fas fa-plus me-2"></i>Aggiungi Termine
+                        </a>
+                    </div>
+                </th>
             </tr>
         </thead>
         <tbody>
             @forelse ($words as $word)
-                <tr>
+                <tr class="align-middle text-center">
                     <th scope="row">{{ $word->id }}</th>
                     <td>{{ $word->title }}</td>
                     <td>{{ $word->slug }}</td>
@@ -27,7 +33,7 @@
                     <td>{{ $word->getFormattedDate('updated_at') }}</td>
 
                     <td>
-                        <div class="d-flex gap-2">
+                        <div class="d-flex justify-content-end gap-2">
                             <a href="{{ route('admin.words.show', $word) }}" class="btn btn-sm btn-primary"><i
                                     class="fa-solid fa-eye"></i></a>
 
@@ -44,12 +50,11 @@
                             <a class="btn btn-warning btn-sm" href="{{ route('admin.words.edit', $word) }}"><i
                                     class="fa-solid fa-pencil"></i></a>
 
-                            <a href="{{ route('admin.words.create') }}" class="btn btn-sm btn-success">
-                                <i class="fas fa-plus"></i>
-                            </a>
+                            
                         </div>
                     </td>
                 </tr>
+
             @empty
                 <tr>
                     <th>Nessun progetto da mostrare</th>
@@ -57,7 +62,13 @@
             @endforelse
 
         </tbody>
+
     </table>
+
+    @if ($words->hasPages())
+    {{$words->links()}}    
+        
+    @endif
 
 @endsection
 

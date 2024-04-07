@@ -15,38 +15,41 @@ class TagSeeder extends Seeder
     {
         // array tags
         $tags = [
+
+            [
+                'label' => 'Programmazione',
+                'color' => 'dark'
+            ],
             [
                 'label' => 'HTML',
-                'color' => 'danger-emphasis'
+                'color' => 'secondary'
             ],
             [
                 'label' => 'CSS',
                 'color' => 'primary'
             ],
             [
-                'label' => 'JS',
+                'label' => 'Javascript',
                 'color' => 'warning'
+            ],
+            [
+                'label' => 'PHP',
+                'color' => 'primary-emphasis'
             ],
             [
                 'label' => 'VUE',
                 'color' => 'success'
             ],
-            [
-                'label' => 'PHP',
-                'color' => 'secondary'
-            ],
+
             [
                 'label' => 'SQL',
                 'color' => 'info'
             ],
             [
-                'label' => 'lARAVEL',
+                'label' => 'LARAVEL',
                 'color' => 'danger'
             ],
-            [
-                'label' => 'PROGRAMMAZIONE',
-                'color' => 'dark'
-            ],
+
         ];
 
         foreach ($tags as $tag) {

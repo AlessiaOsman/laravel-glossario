@@ -7,13 +7,21 @@
     <div class="card my-5">
         <div class="row g-0">
         <div class="col-md-4">
-        <img src="https://marcolanci.it/boolean/assets/placeholder.png" class="img-fluid rounded-start" alt="{{ $word->title }}" style="width: 100%;">
+            
+                
+            <img src="{{ $word->image ? $word->printImage() : 'https://marcolanci.it/boolean/assets/placeholder.png' }}" class="img-fluid rounded-start" alt="{{ $word->title }}" style="width: 100%;">
+           
         </div>
         <div class="col-md-8">
         <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
             <div>
                 <h5 class="card-title">{{ $word->title }}</h5>
                 <p class="card-text mb-3">{{ $word->description }}</p>
+                @forelse ($word->tags as $tag )
+                    <span class="badge rounded-pill text-bg-{{$tag->color}}">{{$tag->label}}</span>
+                    @empty
+                        <h4 class="mb-3">Nessuna tecnologia presente</h4>
+                    @endforelse
             </div>
             <div class="d-flex justify-content-between">
                 <a href="{{ route('admin.words.index', $word) }}" class="btn btn-primary"><i

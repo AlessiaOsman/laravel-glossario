@@ -11,7 +11,7 @@ class Word extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'description'];
+    protected $fillable = ['title', 'description'];
 
     // relazione many to many con tag
 
@@ -25,12 +25,18 @@ class Word extends Model
         return $this->hasMany(Link::class);
     }
 
-    public function getFormattedDate($column, $format='d-m-Y'){
-        
+    public function getFormattedDate($column, $format = 'd-m-Y')
+    {
+
         return Carbon::create($this->$column)->format($format);
     }
 
-    public function contentTruncate($column){
+    public function contentTruncate($column)
+    {
         return Str::limit($this->$column, 20);
+    }
+    public function printImage()
+    {
+        return asset('storage/' . $this->image);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,7 @@ class WordSeeder extends Seeder
      */
     public function run(): void
     {
+
         //Array di base
         $words = [
             [

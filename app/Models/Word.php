@@ -20,9 +20,9 @@ class Word extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function links()
+    public function link()
     {
-        return $this->hasMany(Link::class);
+        return $this->belongsTo(Link::class);
     }
 
     public function getFormattedDate($column, $format = 'd-m-Y')

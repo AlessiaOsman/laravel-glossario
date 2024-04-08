@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Link;
+use App\Models\Word;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('words', function (Blueprint $table) {
-            $table->foreignIdFor(Link::class)->after('id')->nullable()->constrained()->nullOnDelete();
+        Schema::table('links', function (Blueprint $table) {
+            $table->foreignIdFor(Word::class)->after('id')->nullable()->constrained()->nullOnDelete();
         });
     }
 
@@ -22,9 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('words', function (Blueprint $table) {
-           $table->dropForeignIdFor(Link::class);
-           $table->dropColumn('link_id');
+        Schema::table('links', function (Blueprint $table) {
+           $table->dropForeignIdFor(Word::class);
+           $table->dropColumn('word_id');
         });
     }
 };

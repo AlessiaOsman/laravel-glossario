@@ -9,8 +9,8 @@ class Link extends Model
 {
     use HasFactory;
 
-    public function word()
+    public function words()
     {
-        return $this->belongsTo(Word::class);
+        return $this->hasMany(Word::class);
     }
 }

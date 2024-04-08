@@ -14,7 +14,7 @@ class GlossarioController extends Controller
      */
     public function index()
     {
-        $words = Word::latest()->with('tags')->paginate(3);
+        $words = Word::latest()->with('tags')->paginate(5);
 
         return response()->json($words);
     }

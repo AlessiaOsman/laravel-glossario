@@ -6,10 +6,12 @@ use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Link;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+
 
 
 class WordController extends Controller
@@ -72,6 +74,19 @@ class WordController extends Controller
             $word->image = $img_url;
         };
         $word->save();
+
+        if(Arr::exists($data, 'links')){
+            $links = $data['links'];
+            foreach ($links as $link){
+                $link = new Link;
+                $link->label = 'prova 1';
+                $link->url = 'prova url';
+                $link->word_id = $word->id;
+                //$link->url = Str::url($link->url);
+            }
+
+            $link->save();
+        }
 
         if (Arr::exists($data, 'tags')) {
             $word->tags()->attach($data['tags']);

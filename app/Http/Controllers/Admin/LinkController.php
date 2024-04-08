@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Word;
 
 class LinkController extends Controller
 {
@@ -21,7 +22,7 @@ class LinkController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**

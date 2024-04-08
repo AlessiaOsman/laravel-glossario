@@ -46,20 +46,23 @@
             @enderror
         </div>
     </div>
-    <div class="col-12">
+    <div class="col-12 mb-2">
         <div class="mb-3">
-            <label for="url" class="form-label">Indirizzo http</label>
-            <input type="url"
-                class="form-control @error('url') is-invalid
-            @elseif (old('url', '')) is-valid 
+            <label for="links" class="form-label">Indirizzo http</label>
+            <input type="links"
+                class="form-control @error('links') is-invalid
+            @elseif (old('links', '')) is-valid 
           @enderror"
-                id="url" name="url" value="{{ old('url', $word->url) }}">
-            @error('url')
+                id="links" name="links[]" 
+                {{-- value="{{ old('links', $links->url) }}" --}}
+                >
+            @error('links')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
         </div>
+        <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i></button>
     </div>
     <div class="col-12">
         <div class="mt-3">
@@ -84,7 +87,7 @@
                 {{-- gioacchino il bordoooo --}}
                 <button class="btn btn-outline-secondary w-25 me-1" type="button" id="change-image-button">Cambia
                     Immagine</button>
-                <input type="text" class="form-control" value="{{ old('image', $word->image) }}" disabled>
+                <input type="text" class="form-control" value="{{ old('image', $word->image) }}" disabled>  
             </div>
             <input type="file"
                 class="form-control @if ($word->image) d-none @endif @error('image') is-invalid @elseif (old('image', '')) is-valid @enderror"

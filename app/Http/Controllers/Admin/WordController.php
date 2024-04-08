@@ -75,22 +75,11 @@ class WordController extends Controller
         };
         $word->save();
 
-        if(Arr::exists($data, 'links')){
+        if (Arr::exists($data, 'links')) {
             $links = $data['links'];
-            // foreach ($links as $link){
-            //     if(!empty($link['url'])){
-            //         $newLink = new Link;
-            //         // $link->label = 'prova 3';
-            //         // $link->url = $link['url'];
-            //         $newLink->fill($link);
-            //         $newLink->word_id = $word->id;
-            //     //$link->url = Str::url($link->url);
-            //         $newLink->save();
-            //     }
-                
-            // }
+
             foreach ($data['links'] as $link) {
-                if ($link['url']) {
+                if ($link['url'] && $link['label']) {
                     $new_link = new Link();
                     $new_link->word_id = $word->id;
                     $new_link->label = $link['label'];
@@ -99,9 +88,6 @@ class WordController extends Controller
                     $new_link->save();
                 }
             }
-
-            
-            
         }
 
         if (Arr::exists($data, 'tags')) {
@@ -110,7 +96,7 @@ class WordController extends Controller
 
 
 
-        return to_route('admin.words.show', $word)->with('message', 'Nuova parola inserita con successo')->with('type', 'success');
+        return to_route('admin.words.show', compact('word', 'links'))->with('message', 'Nuova parola inserita con successo')->with('type', 'success');
     }
 
     /**
@@ -128,6 +114,7 @@ class WordController extends Controller
     {
         $tags = Tag::select('label', 'id')->get();
         $prev_tag = $word->tags->pluck('id')->toArray();
+
 
 
         return view('admin.words.edit', compact('word', 'tags', 'prev_tag'));
@@ -172,12 +159,27 @@ class WordController extends Controller
         };
         $word->save();
 
+        if (Arr::exists($data, 'links')) {
+            $links = $data['links'];
+
+            foreach ($data['links'] as $link) {
+                if ($link['url'] && $link['label']) {
+                    $new_link = new Link();
+                    $new_link->word_id = $word->id;
+                    $new_link->label = $link['label'];
+                    $new_link->url = $link['url'];
+                    $new_link->fill($link);
+                    $new_link->save();
+                }
+            }
+        }
+
         if (Arr::exists($data, 'tags')) {
             $word->tags()->sync($data['tags']);
         }
 
 
-        return to_route('admin.words.show', $word);
+        return to_route('admin.words.show', compact('word', 'links'));
     }
 
     /**

@@ -53,7 +53,7 @@
             <label for="label" class="form-label">Label</label>
             <input type="text"
                 class="form-control @error('links.0.label') is-invalid @elseif (old('links.0.label', '')) is-valid @enderror"
-                id="label" name="links[0][label]" {{-- value="{{ old('links.0.label', '') }}" --}}>
+                id="label" name="links[0][label]" value="{{ old('links.0.label', '') }}">
             @error('links.0.label')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -72,10 +72,9 @@
             <label for="links" class="form-label">Indirizzo http</label>
             <input type="links"
                 class="form-control @error('links') is-invalid
-            @elseif (old('links', '')) is-valid 
+            @elseif (old('links.0.url', '')) is-valid 
           @enderror"
-                id="links" name="links[0][url]" 
-                {{-- value="{{ old('links', $links->url) }}" --}}
+                id="links" name="links[0][url]" value="{{ old('links.0.url', '') }}"
                 >
             @error('links')
                 <div class="invalid-feedback">

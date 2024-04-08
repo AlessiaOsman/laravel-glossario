@@ -77,15 +77,31 @@ class WordController extends Controller
 
         if(Arr::exists($data, 'links')){
             $links = $data['links'];
-            foreach ($links as $link){
-                $link = new Link;
-                $link->label = 'prova 1';
-                $link->url = 'prova url';
-                $link->word_id = $word->id;
-                //$link->url = Str::url($link->url);
+            // foreach ($links as $link){
+            //     if(!empty($link['url'])){
+            //         $newLink = new Link;
+            //         // $link->label = 'prova 3';
+            //         // $link->url = $link['url'];
+            //         $newLink->fill($link);
+            //         $newLink->word_id = $word->id;
+            //     //$link->url = Str::url($link->url);
+            //         $newLink->save();
+            //     }
+                
+            // }
+            foreach ($data['links'] as $link) {
+                if ($link['url']) {
+                    $new_link = new Link();
+                    $new_link->word_id = $word->id;
+                    $new_link->label = 'prova 5';
+                    $new_link->url = $link['url'];
+                    $new_link->fill($link);
+                    $new_link->save();
+                }
             }
 
-            $link->save();
+            
+            
         }
 
         if (Arr::exists($data, 'tags')) {

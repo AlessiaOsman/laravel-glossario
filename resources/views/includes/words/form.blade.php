@@ -53,7 +53,7 @@
                 class="form-control @error('links') is-invalid
             @elseif (old('links', '')) is-valid 
           @enderror"
-                id="links" name="links[]" 
+                id="links" name="links[][url]" 
                 {{-- value="{{ old('links', $links->url) }}" --}}
                 >
             @error('links')

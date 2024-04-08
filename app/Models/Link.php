@@ -9,6 +9,8 @@ class Link extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['url', 'label'];
+
     public function words()
     {
         return $this->hasMany(Word::class);

@@ -93,7 +93,7 @@ class WordController extends Controller
                 if ($link['url']) {
                     $new_link = new Link();
                     $new_link->word_id = $word->id;
-                    $new_link->label = 'prova 5';
+                    $new_link->label = $link['label'];
                     $new_link->url = $link['url'];
                     $new_link->fill($link);
                     $new_link->save();

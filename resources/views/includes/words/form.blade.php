@@ -47,13 +47,34 @@
         </div>
     </div>
     <div class="col-12 mb-2">
+
+
+        <div class="mb-3">
+            <label for="label" class="form-label">Label</label>
+            <input type="text"
+                class="form-control @error('links.0.label') is-invalid @elseif (old('links.0.label', '')) is-valid @enderror"
+                id="label" name="links[0][label]" {{-- value="{{ old('links.0.label', '') }}" --}}>
+            @error('links.0.label')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @else
+                <div class="form-text">
+                    <p>Inserisci il nome del link</p>
+                </div>
+            @enderror
+        </div>
+
+
+
+
         <div class="mb-3">
             <label for="links" class="form-label">Indirizzo http</label>
             <input type="links"
                 class="form-control @error('links') is-invalid
             @elseif (old('links', '')) is-valid 
           @enderror"
-                id="links" name="links[][url]" 
+                id="links" name="links[0][url]" 
                 {{-- value="{{ old('links', $links->url) }}" --}}
                 >
             @error('links')
@@ -63,6 +84,10 @@
             @enderror
         </div>
         <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i></button>
+
+
+
+        
     </div>
     <div class="col-12">
         <div class="mt-3">

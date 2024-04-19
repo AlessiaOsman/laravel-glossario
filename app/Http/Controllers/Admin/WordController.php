@@ -7,7 +7,7 @@ use App\Models\Word;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Link;
-use Illuminate\Support\Arr;
+    use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
